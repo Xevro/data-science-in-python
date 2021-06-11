@@ -14268,7 +14268,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[630]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[678]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importeren van gebruikte bibliotheken</span>
@@ -14313,13 +14313,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="1---Features-behandelen">1 - Features behandelen<a class="anchor-link" href="#1---Features-behandelen">&#182;</a></h1><h2 id="1.1---Inlezen-features">1.1 - Inlezen features<a class="anchor-link" href="#1.1---Inlezen-features">&#182;</a></h2><p>Onderstaande code leest het <em>featuresDataFrame</em> bestand in en zet deze om naar een dataframe. In deel 1 van het project is er nog een aanpassing gebeurd, de kolom <em>Geboortedatum</em> werd alsnog meegenomen als feature om hierna verdere berekeningen te kunnen doen. De kolom <em>Aantal dagen tot vertrek</em> en <em>Aantal dagen op reis</em> waren achteraf gezien niet goed berekend waardoor deze opnieuw zijn berekend en omgezet. Dit zorgde voor een afname van negatieve tijden die dan verwijderd zijn, dit zorgde voor een afname van heel wat lijnen waardoor er nu nog 2267 rijen over zijn.</p>
+<h1 id="1---Features-behandelen">1 - Features behandelen<a class="anchor-link" href="#1---Features-behandelen">&#182;</a></h1><h2 id="1.1---Inlezen-features">1.1 - Inlezen features<a class="anchor-link" href="#1.1---Inlezen-features">&#182;</a></h2><p>Onderstaande code leest het <em>featuresDataFrame.csv</em> bestand in en zet deze om naar een dataframe. In deel 1 van het project is er nog een aanpassing gebeurd, de kolom <em>Geboortedatum</em> werd alsnog meegenomen om hierna verdere berekeningen te kunnen doen (berekenen van de leeftijd). De kolom <em>Aantal dagen tot vertrek</em> en <em>Aantal dagen op reis</em> waren achteraf gezien niet goed berekend waardoor deze opnieuw zijn berekend en omgezet. Dit zorgde voor een afname van negatieve tijden die dan verwijderd zijn, dit zorgde voor een afname van heel wat lijnen waardoor er nu nog 2401 rijen over zijn.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[631]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[679]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;featuresDataFrame.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> 
@@ -14334,7 +14334,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.2---Omzetten-van-datatypes">1.2 - Omzetten van datatypes<a class="anchor-link" href="#1.2---Omzetten-van-datatypes">&#182;</a></h3><p>De opgeslagen data is bij het inlezen opnieuw van het type int64, float64 en object. De data dat hiervoor een timedelta was ('Aantal dagen tot vertrek' en de 'Aantal dagen op reis' kolom) moet worden omgezet zodat er terug met kan worden gewerkt.</p>
+<h3 id="1.2---Omzetten-van-datatypes">1.2 - Omzetten van datatypes<a class="anchor-link" href="#1.2---Omzetten-van-datatypes">&#182;</a></h3><p>De opgeslagen data is bij het inlezen opnieuw van het type int64, float64 en object. De data dat hiervoor een timedelta was (<em>Aantal dagen tot vertrek</em> en de %Aantal dagen op reis* kolom) moet worden omgezet zodat er terug met kan worden gewerkt.</p>
 <p>De kolom <em>Land</em> bevat de afkorting van het land waar de klant afkomstig van is. Om deze data in een model te kunnen gebruiken als feature worden deze gegevens omgezet in een cijfer. De onderstaande lijst toont de eerste 5 landen met hun corresponderende cijfer.</p>
 <ul>
 <li>1 België</li>
@@ -14360,7 +14360,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[632]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[680]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">convert_timedelta</span><span class="p">(</span><span class="n">df_col</span><span class="p">):</span>
@@ -14484,7 +14484,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[633]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[681]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;Geboortedatum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;Geboortedatum&#39;</span><span class="p">],</span> <span class="n">errors</span> <span class="o">=</span> <span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
@@ -14527,7 +14527,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[634]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[682]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nederland</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;friese&#39;</span><span class="p">,</span> <span class="s1">&#39;nederland&#39;</span><span class="p">,</span> <span class="s1">&#39;netherlands&#39;</span><span class="p">,</span> <span class="s1">&#39;vlieland&#39;</span><span class="p">,</span> <span class="s1">&#39;brabant&#39;</span><span class="p">,</span> <span class="s1">&#39;twente&#39;</span><span class="p">,</span> <span class="s1">&#39;drenthe&#39;</span><span class="p">,</span> <span class="s1">&#39;limburg&#39;</span><span class="p">,</span> <span class="s1">&#39;brabantse&#39;</span><span class="p">,</span> <span class="s1">&#39;nederlands&#39;</span><span class="p">,</span> <span class="s1">&#39;duinen&#39;</span><span class="p">,</span> <span class="s1">&#39;salland&#39;</span><span class="p">,</span> <span class="s1">&#39;zeeland&#39;</span><span class="p">,</span> <span class="s1">&#39;ijslanders&#39;</span><span class="p">]</span>
@@ -14665,7 +14665,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <span class="k">return</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;Bestemming&#39;</span><span class="p">]</span>
 
 <span class="n">features</span><span class="p">[</span><span class="s1">&#39;Bestemming&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">convert_bestemmingen</span><span class="p">()</span>
-<span class="c1">#features = features[&#39;Bestemming&#39;].dropna()</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;Bestemming&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
 <span class="n">features</span><span class="p">[</span><span class="s1">&#39;Bestemming&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;Bestemming&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
@@ -14678,7 +14677,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.5----Aanpassen-categorie&#235;n-Aantal-dagen-tot-vertrek">1.5 -  Aanpassen categorie&#235;n <em>Aantal dagen tot vertrek</em><a class="anchor-link" href="#1.5----Aanpassen-categorie&#235;n-Aantal-dagen-tot-vertrek">&#182;</a></h2><p>De kolommen <em>Aantal dagen tot vertrek</em> bevat steeds een cijfer dat aangeeft in welke categorie de reis valt tussen het aantal dagen na het bestellen van een reis en het effectief vertrekken op reis. De kolom <em>delta periode vertrek</em> bevat de originele datums om later met linaire regressie de duur van een reis te voorspellen.</p>
+<h2 id="1.5----Aanpassen-categorie&#235;n-Aantal-dagen-tot-vertrek">1.5 -  Aanpassen categorie&#235;n <em>Aantal dagen tot vertrek</em><a class="anchor-link" href="#1.5----Aanpassen-categorie&#235;n-Aantal-dagen-tot-vertrek">&#182;</a></h2><p>De kolom <em>Aantal dagen tot vertrek</em> bevat steeds een cijfer dat aangeeft in welke categorie de reis valt tussen het aantal dagen na het bestellen van een reis en het effectief vertrekken op reis. De kolom <em>delta periode vertrek</em> bevat de originele datums om later met linaire regressie de duur van een reis te voorspellen.</p>
 <p>De aantal dagen worden omgezet in en cijfer dat een periode weergeeft, onderstaande lijst toont de betekenis van elk cijfer.</p>
 <ul>
 <li>1: 1 tot 14 dagen</li>
@@ -14693,7 +14692,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[635]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[683]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;Aantal dagen tot vertrek&#39;</span><span class="p">]</span>
@@ -14736,7 +14735,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[636]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[684]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;delta periode vertrek&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Aantal dagen tot vertrek&#39;</span><span class="p">]</span> 
@@ -14768,7 +14767,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[637]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[685]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">dtypes</span>
@@ -14787,7 +14786,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[637]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[685]:</div>
 
 
 
@@ -14824,13 +14823,13 @@ dtype: object</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.6---Bekijken-van-features">1.6 - Bekijken van features<a class="anchor-link" href="#1.6---Bekijken-van-features">&#182;</a></h2><p>In het onderstaande dataframe staan alle gegevens die kunnen worden gebruikt als feature. Het spreekt voor zich dat er uiteraard ook enkele minder relevante zaken zoals klantnummer en datums zullen worden weggelaten uit het finale dataframe waarmee de modellen zullen worden opgebouwd. De zaken die daarnet werden berekend moeten ook weggelaten worden uit het dataframe om te voorkomen dat het model te sterk trekt naar de correlerende data.</p>
+<h2 id="1.6---Bekijken-van-features">1.6 - Bekijken van features<a class="anchor-link" href="#1.6---Bekijken-van-features">&#182;</a></h2><p>In het onderstaande dataframe staan alle gegevens die kunnen worden gebruikt als feature. Het spreekt voor zich dat er uiteraard ook enkele minder relevante zaken zoals klantnummer en datums zullen worden weggelaten uit het finale dataframe waarmee de modellen zullen worden opgebouwd. De zaken die daarnet werden berekend moeten ook weggelaten worden uit het dataframe om te voorkomen dat het model te sterk trekt naar de gecoreleerde data.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[638]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[686]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -14849,7 +14848,7 @@ dtype: object</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[638]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[686]:</div>
 
 
 
@@ -14895,224 +14894,224 @@ dtype: object</pre>
   </thead>
   <tbody>
     <tr>
-      <th>1318</th>
+      <th>1373</th>
       <td>1</td>
       <td>2017</td>
-      <td>2949</td>
-      <td>f80c0c468f1aa0b0</td>
-      <td>2017-01-04</td>
-      <td>2017-02-06</td>
-      <td>2017-05-06</td>
-      <td>545.00</td>
-      <td>545.00</td>
+      <td>3069</td>
+      <td>f3e41b0b2d4b53b3</td>
+      <td>2017-05-23</td>
+      <td>2017-07-22</td>
+      <td>2017-07-29</td>
+      <td>749.00</td>
+      <td>749.00</td>
       <td>0.0</td>
       <td>2</td>
-      <td>1</td>
+      <td>23</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
-      <td>89</td>
-      <td>1958-03-27</td>
-      <td>63</td>
-      <td>33</td>
+      <td>7</td>
+      <td>NaT</td>
+      <td>42</td>
+      <td>60</td>
     </tr>
     <tr>
-      <th>581</th>
+      <th>597</th>
       <td>1</td>
       <td>2013</td>
-      <td>1453</td>
-      <td>b671b21de9e2ea05</td>
-      <td>2014-05-27</td>
+      <td>1506</td>
+      <td>e3864cf03b5beef0</td>
+      <td>2014-06-28</td>
+      <td>2014-08-08</td>
+      <td>2014-10-08</td>
+      <td>975.00</td>
+      <td>975.00</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>61</td>
+      <td>NaT</td>
+      <td>42</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>1487</th>
+      <td>1</td>
+      <td>2017</td>
+      <td>3304</td>
+      <td>e449d982e9bc0333</td>
+      <td>2017-11-13</td>
+      <td>2017-11-18</td>
+      <td>2017-11-25</td>
+      <td>1174.61</td>
+      <td>1174.61</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>11</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>NaT</td>
+      <td>42</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>507</th>
+      <td>1</td>
+      <td>2013</td>
+      <td>1258</td>
+      <td>ee04ef5c97b382a8</td>
+      <td>2014-05-02</td>
       <td>2014-07-19</td>
       <td>2014-07-26</td>
-      <td>800.00</td>
-      <td>800.00</td>
+      <td>1820.00</td>
+      <td>1820.00</td>
       <td>0.0</td>
-      <td>6</td>
+      <td>2</td>
       <td>3</td>
       <td>1</td>
-      <td>3</td>
-      <td>3</td>
+      <td>2</td>
+      <td>4</td>
       <td>7</td>
       <td>NaT</td>
       <td>42</td>
-      <td>53</td>
+      <td>78</td>
     </tr>
     <tr>
-      <th>1742</th>
+      <th>685</th>
       <td>1</td>
-      <td>2018</td>
-      <td>3918</td>
-      <td>21fa15ec618dc156</td>
-      <td>2018-08-14</td>
-      <td>2018-09-15</td>
-      <td>2018-09-22</td>
-      <td>1260.00</td>
-      <td>1260.00</td>
+      <td>2014</td>
+      <td>1694</td>
+      <td>61c31ca435dbeb02</td>
+      <td>2015-01-22</td>
+      <td>2015-06-13</td>
+      <td>2015-06-20</td>
+      <td>836.91</td>
+      <td>836.91</td>
       <td>0.0</td>
       <td>2</td>
       <td>7</td>
       <td>1</td>
       <td>1</td>
-      <td>3</td>
+      <td>5</td>
       <td>7</td>
       <td>NaT</td>
       <td>42</td>
-      <td>32</td>
+      <td>142</td>
     </tr>
     <tr>
-      <th>421</th>
+      <th>2017</th>
+      <td>1</td>
+      <td>2019</td>
+      <td>20190404</td>
+      <td>11b5de99aa518265</td>
+      <td>2019-07-28</td>
+      <td>2019-08-17</td>
+      <td>2019-08-24</td>
+      <td>1185.00</td>
+      <td>1185.00</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>11</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>7</td>
+      <td>1988-09-03</td>
+      <td>33</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td>1</td>
+      <td>2012</td>
+      <td>689</td>
+      <td>d0c4d8eb6f2f3dac</td>
+      <td>2012-12-13</td>
+      <td>2012-12-30</td>
+      <td>2013-06-01</td>
+      <td>500.00</td>
+      <td>500.00</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>16</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>153</td>
+      <td>NaT</td>
+      <td>42</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>1125</th>
+      <td>1</td>
+      <td>2016</td>
+      <td>2579</td>
+      <td>ed34923408b403a9</td>
+      <td>2016-07-31</td>
+      <td>2016-08-15</td>
+      <td>2016-08-17</td>
+      <td>182.00</td>
+      <td>182.00</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>NaT</td>
+      <td>42</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1014</th>
+      <td>1</td>
+      <td>2016</td>
+      <td>2350</td>
+      <td>0be58378f0d29024</td>
+      <td>2016-01-04</td>
+      <td>2016-04-17</td>
+      <td>2016-04-24</td>
+      <td>1732.50</td>
+      <td>1732.50</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>11</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>7</td>
+      <td>1937-12-22</td>
+      <td>84</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>392</th>
       <td>1</td>
       <td>2013</td>
-      <td>1122</td>
-      <td>b5cf0a9e4cf6611d</td>
-      <td>2013-08-13</td>
-      <td>2014-06-04</td>
-      <td>2014-12-04</td>
-      <td>2855.85</td>
-      <td>2855.85</td>
+      <td>1055</td>
+      <td>adbd8175e11182fc</td>
+      <td>2013-06-30</td>
+      <td>2013-07-09</td>
+      <td>2013-09-14</td>
+      <td>1216.19</td>
+      <td>1216.19</td>
       <td>0.0</td>
-      <td>1</td>
-      <td>11</td>
-      <td>1</td>
       <td>2</td>
-      <td>5</td>
-      <td>183</td>
-      <td>NaT</td>
-      <td>42</td>
-      <td>295</td>
-    </tr>
-    <tr>
-      <th>1314</th>
+      <td>20</td>
       <td>1</td>
-      <td>2017</td>
-      <td>2939</td>
-      <td>4640b66ea8be5db5</td>
-      <td>2017-03-29</td>
-      <td>2017-05-26</td>
-      <td>2017-05-28</td>
-      <td>470.00</td>
-      <td>470.00</td>
-      <td>0.0</td>
       <td>1</td>
-      <td>2</td>
       <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>2</td>
-      <td>NaT</td>
-      <td>42</td>
+      <td>67</td>
+      <td>1963-03-13</td>
       <td>58</td>
-    </tr>
-    <tr>
-      <th>2074</th>
-      <td>1</td>
-      <td>2019</td>
-      <td>20190498</td>
-      <td>fc51cb64d3dd6b5a</td>
-      <td>2019-10-20</td>
-      <td>2019-10-21</td>
-      <td>2019-10-24</td>
-      <td>780.00</td>
-      <td>780.00</td>
-      <td>0.0</td>
-      <td>2</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1971-04-06</td>
-      <td>50</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2071</th>
-      <td>1</td>
-      <td>2019</td>
-      <td>20190494</td>
-      <td>b0f992088e533184</td>
-      <td>2019-10-16</td>
-      <td>2020-07-02</td>
-      <td>2020-09-02</td>
-      <td>2642.00</td>
-      <td>2642.00</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>15</td>
-      <td>5</td>
-      <td>62</td>
-      <td>NaT</td>
-      <td>42</td>
-      <td>260</td>
-    </tr>
-    <tr>
-      <th>1288</th>
-      <td>1</td>
-      <td>2017</td>
-      <td>2881</td>
-      <td>aa7bac10bfce31f5</td>
-      <td>2017-01-03</td>
-      <td>2017-10-23</td>
-      <td>2017-10-28</td>
-      <td>2009.40</td>
-      <td>2009.40</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>11</td>
-      <td>1</td>
-      <td>2</td>
-      <td>5</td>
-      <td>5</td>
-      <td>NaT</td>
-      <td>42</td>
-      <td>293</td>
-    </tr>
-    <tr>
-      <th>1921</th>
-      <td>1</td>
-      <td>2019</td>
-      <td>20190199</td>
-      <td>7dd24947fc21be48</td>
-      <td>2019-03-26</td>
-      <td>2019-08-04</td>
-      <td>2019-10-04</td>
-      <td>260.00</td>
-      <td>260.00</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>5</td>
-      <td>61</td>
-      <td>1998-03-13</td>
-      <td>23</td>
-      <td>131</td>
-    </tr>
-    <tr>
-      <th>2058</th>
-      <td>1</td>
-      <td>2019</td>
-      <td>20190475</td>
-      <td>3cc45e63bb07e135</td>
-      <td>2019-01-10</td>
-      <td>2019-10-25</td>
-      <td>2019-10-27</td>
-      <td>590.00</td>
-      <td>590.00</td>
-      <td>0.0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>5</td>
-      <td>2</td>
-      <td>1950-04-06</td>
-      <td>71</td>
-      <td>288</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>
@@ -15134,13 +15133,14 @@ dtype: object</pre>
 <li><strong>Dossier jaar</strong>: Het jaar waarin het dossier werdt aangemaakt.</li>
 <li><strong>Dossier nr.</strong>: Een nummer (id) dat iedere reis identificeert.</li>
 <li><strong>Totaalprijs</strong>: De prijs die ze in totaal betalen voor de reis.</li>
-<li><strong>Land</strong>: Het thuisland van de reiziger.</li>
-<li><strong>Bestemming</strong>: Het land waar de reiziger naartoe geweest is.</li>
-<li><strong>Reistype</strong>: Het type reis dat de reiziger neemt.</li>
+<li><strong>Land</strong>: Het thuisland van de reiziger (omgezet is een cijfer).</li>
+<li><strong>Bestemming</strong>: Het land waar de reiziger naartoe geweest is (omgezet in een cijfer).</li>
+<li><strong>Reistype</strong>: Het type reis (omgezet in een cijfer).</li>
 <li><strong>Aantal reizigers</strong>: Het aantal personen die mee opreis gaan.</li>
-<li><strong>Aantal dagen tot vertrek</strong>: Het berekende aantal dagen tussen het aanmaken van een account en de vertrek datum.</li>
+<li><strong>Aantal dagen tot vertrek</strong>: Het berekende aantal dagen tussen het aanmaken van een boeking en de vertrek datum (omgezet in een cijfer, opgedeeld in een categorie).</li>
 <li><strong>Aantal dagen op reis</strong>: Het berekende aantal dagen dat de reis duurde.</li>
 <li><strong>Leeftijd</strong>: Leeftijd van de klant.</li>
+<li><strong>Delta periode vertrek</strong>: Het berekende aantal dagen tussen het aanmaken van een boeking en de vertrek datum (de effectieve waarde, feature: <em>Aantal dagen tot vertrek</em> is hetzelfde maar als categorie).</li>
 </ul>
 
 </div>
@@ -15149,14 +15149,14 @@ dtype: object</pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="2.1---Correlatie-tussen-features">2.1 - Correlatie tussen features<a class="anchor-link" href="#2.1---Correlatie-tussen-features">&#182;</a></h2><p>Onderstaande matrix toont aan hoe de features met elkaar verbonden zijn op een schaal van 0 tot 1. Hoe hoger de score bij 1 ligt hoe dichter de features gecorreleerd zijn met elkaar. De correlatie tussen de eigen data is steeds 1 wat ook wordt weergegeven in de diagonale donkerrode lijn.</p>
 <p>In de matrix zien we dat er enkele features een goede correlatie hebben met elkaar (hoger dan 0.4).
-Zo zijn het <em>aantal reizigers</em>, <em>aantal dagen tot vertrek</em>, de <em>totaal prijs</em>, het <em>dossier nummer</em> en <em>dossier jaar</em> features die een verband hebben met elkaar. Omdat er enkele features (<em>dossier nummer</em> en jaar &amp; <em>Totaalprijs</em> en <em>Betalingen Dossier</em>) een hoge correlatie hebben kan dit zorgen voor overfitting, hierdoor is het best om één van de twee waarden niet op te nemen als feature in het model.
+Zo zijn het <em>aantal reizigers</em>, <em>aantal dagen tot vertrek</em>, de <em>totaal prijs</em>, het <em>dossier nummer</em> en <em>dossier jaar</em> features die een verband hebben met elkaar. Omdat er enkele features (<em>Dossies nummer</em> en <em>Dossier jaar</em> &amp; <em>Totaalprijs</em> en <em>Betalingen Dossier</em>) een hoge correlatie hebben kan dit zorgen voor overfitting, hierdoor is het best om één van de twee waarden niet op te nemen als feature in het model.
 Bij het splitten van de train en test data zullen de kolommen <em>Dossier nr.</em> en <em>Betalingen Dossier</em> weggelaten worden.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[639]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[687]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
@@ -15209,12 +15209,13 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 <li><strong>Betalingen dossier</strong> Het bedrag dat al reeds betaald was is ook hoog gecorreleerd met het totaal bedrag waardoor deze kolom ook kan worden weggelaten uit de features.</li>
 <li><strong>Datums</strong> De kolommen <em>Datum creatie</em>, <em>Datum vertrek</em> en <em>Datum terug</em> zijn datums die al gebruikt zijn om zaken te berekenen (Aantal dagen op reis en Aantal dagen tot vertrek).</li>
 </ul>
+<p>De <em>delta periode vertrek</em> is enkel nuttig bij linaire regresie waardoor deze feature ook niet mag gebruikt worden bij de classifier modellen. Deze feature is ook gecorreleerd met de target waardoor deze niet mag worden gebruikt.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[640]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[688]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span>
@@ -15233,7 +15234,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[640]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[688]:</div>
 
 
 
@@ -15541,7 +15542,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[641]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[689]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">data_schalen</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -15570,7 +15571,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[642]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[690]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span>
@@ -15589,7 +15590,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[642]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[690]:</div>
 
 
 
@@ -15625,7 +15626,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[643]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[691]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feature_names</span>
@@ -15644,7 +15645,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[643]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[691]:</div>
 
 
 
@@ -15670,7 +15671,7 @@ Gezien de verdeling van de gegevens, wordt bij elke waarde in de gegevensset de 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[644]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[692]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape van de X data:&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -15707,7 +15708,7 @@ Shape van de y target data: (2212,)
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[645]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[693]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aantal features:&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -15763,15 +15764,15 @@ Grootte van trainingsset y: 1659, Grootte van testset y: 553
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Testen-van-verschillende-modellen">Testen van verschillende modellen<a class="anchor-link" href="#Testen-van-verschillende-modellen">&#182;</a></h2><h2 id="3.1---KNN-model">3.1 - KNN-model<a class="anchor-link" href="#3.1---KNN-model">&#182;</a></h2><p>Onderstaande code print voor elke iteratie de train en test score uit met 4 grafieken. De twee linkse grafieken tonen het percentage per aantal neighbors op de hele trainingsset. De twee rechtse grafieken tonen het percentage per aantal neighbors op de testdata. Hieruit blijkt dat op de trainingsdata het slaagpercentage steeds zakt naarmate er meer neighbors bijkomen. Wat opvalt is dat bij 1 neightbor bij de trainingsset tegenover de testset er duidelijk overfitting optreedt.</p>
-<p>Naarmate het aantal neighbors stijgt zakt de score en stijgt de score op de testset. Er heerst nog steeds overfitting maar dit probleem samen met de lage train en test scores kan liggen aan het feit dat enkele features niet goed opgeschoont zijn en of doordat het een relatief kleine dataset is.</p>
-<p>Ik gebruik de Elbow methode om de beste waarde voor k (aantal neightbors) te vinden, deze waarde is dan af te lezen van de grafiek en wordt uitgeprint voor iedere iteratie met de bijhorende train en test scores. In mijn opstelling zal deze later ingesteld worden op 7, nadien doen we voor de evaluatie van het model nogmaals dezelfde stappen maar deze keer met een niet variabele k.</p>
+<p>Naarmate het aantal neighbors stijgt zakt de score en stijgt de score op de testset een beetje. Er heerst nog steeds overfitting maar dit probleem samen met de lage train en test scores kan liggen aan het feit dat enkele features niet goed opgeschoont zijn en of doordat het een relatief kleine dataset is.</p>
+<p>Om de beste waarde voor k (aantal neightbors) te vinden komt de Elbow methode van pas, deze methode itereert over het aantal neighbors met de bijhorende train- en testscores. De waardes zijn dan af te lezen van de grafiek. In de opstelling zal deze later ingesteld worden op 7, nadien doen we voor de evaluatie van het model nogmaals dezelfde stappen maar deze keer met een niet variabele k.</p>
 <p>Tijdens het uittesten van het KNN-model viel me op dat het schalen van de data met de StandardScaler een positief maar kleine verbetering gaf in de train- en testscores.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[646]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[694]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">trainingScoreKNN</span> <span class="o">=</span> <span class="p">[]</span>
@@ -15890,7 +15891,7 @@ Accuracy op de test set: 0.396
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[647]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[695]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -15945,7 +15946,7 @@ Accuracy op de test set: 0.396
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[648]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[696]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">7</span><span class="p">)</span>
@@ -15988,14 +15989,14 @@ Test set score: 0.38
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.2---Decision-tree-classifier-model">3.2 - Decision tree classifier model<a class="anchor-link" href="#3.2---Decision-tree-classifier-model">&#182;</a></h2><p>Onderstaande code print voor elke iteratie de train en test score uit met 4 grafieken. De twee linkse grafieken tonen het percentage voor elke diepte op de hele trainingsset. De twee rechtse grafieken tonen het percentage van de testdata voor elke diepte. Hieruit blijkt dat op de trainingsdata het slaagpercentage toeneemt bij een hogere diepte, dit blijft doorgaan tot een diepte van 27, hierna vlakt de score af tot 97% maar is er een zeer grote overfitting aanwezig. Het is uiteraard ook niet goed om een te hoge diepte in te stellen omdat er dan te veel opsplitsingen gebeuren en zo het model te specifiek wordt getrained op de aangeleverde dataset. Het Decision tree algoritme is ook heel wat sneller dan het KNN classifier model.</p>
+<h2 id="3.2---Decision-tree-classifier-model">3.2 - Decision tree classifier model<a class="anchor-link" href="#3.2---Decision-tree-classifier-model">&#182;</a></h2><p>Onderstaande code print voor elke iteratie de train en test score uit met 4 grafieken. De twee linkse grafieken tonen het percentage voor elke diepte op de hele trainingsset. De twee rechtse grafieken tonen het percentage van de testdata voor elke diepte. Hieruit blijkt dat op de trainingsdata het slaagpercentage toeneemt bij een hogere diepte, dit blijft doorgaan tot een diepte van 27, hierna vlakt de score af tot 97% maar is er een zeer grote overfitting aanwezig. Het is uiteraard ook niet goed om een te hoge diepte in te stellen omdat er dan te veel opsplitsingen gebeuren en zo het model te specifiek wordt getrained op de aangeleverde dataset. Het decision tree algoritme is ook heel wat sneller dan het KNN classifier model.</p>
 <p>De 2 onderste grafieken geven een ingezoomde lijn grafiek weer om het verloop tussen beter zichtbaar te maken.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[649]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[697]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">trainingScoreDec</span> <span class="o">=</span> <span class="p">[]</span>
@@ -16132,7 +16133,7 @@ Accuracy op de test set: 0.345
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[650]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[698]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -16180,13 +16181,13 @@ Accuracy op de test set: 0.345
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.2.1---Finaal-Decision-tree-model">3.2.1 - Finaal Decision tree model<a class="anchor-link" href="#3.2.1---Finaal-Decision-tree-model">&#182;</a></h3><p>We zien hieronder terug een duidelijke overfitting optreden. De decision tree is bij een hoge diepte acurater in de trainingsset maar het bljft slecht scoren op de testset. In de grafieken hierboven zagen we ook dat de test scores zeer gelijk bleven en niet veel verbeterden. Met een diepte van 12 krijgen we een trainingsscore van 66% en op de testset een lage 39%. Terug denk ik dat door de gekozen features deze scores omlaag worden getrokken en dat dit mogelijks kan worden verbeterd met een grotere dataset en andere opschoonmethodes.</p>
+<h3 id="3.2.1---Finaal-Decision-tree-model">3.2.1 - Finaal Decision tree model<a class="anchor-link" href="#3.2.1---Finaal-Decision-tree-model">&#182;</a></h3><p>We zien hieronder terug een duidelijke overfitting optreden. De decision tree is bij een hoge diepte acurater in de trainingsset maar het bljft slecht scoren op de testset. In de grafieken hierboven zagen we ook dat de test scores zeer gelijk bleven en niet veel verbeterden. Met een diepte van 12 krijgen we een trainingsscore van 82% en op de testset een lage 35%. Terug denk ik dat door de gekozen features deze scores omlaag worden getrokken en dat dit mogelijks kan worden verbeterd met een grotere dataset en andere opschoonmethodes.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[651]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[699]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">treeModelReg</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -16224,6 +16225,12 @@ Test set score: 0.35
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Plotten van de decision tree en opslaan als png</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16250,7 +16257,7 @@ Test set score: 0.35
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[652]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[700]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">logRegr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">multi_class</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -16292,12 +16299,13 @@ Test set score: 0.427
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="3.4---Random-forest-tree">3.4 - Random forest tree<a class="anchor-link" href="#3.4---Random-forest-tree">&#182;</a></h2><p>Het Random forest tree cassifier alogritme is een verzameling van decision trees. Elke tree doet een voorspelling maar loopt ook heel wat kans om de voorspellingen te gaan overfitten. Bij random forest worden meerdere trees parallel geraadplaagd en geven ze elk hun parameters mee. Uit deze resultaten zal dan een eindresultaat komen. In dit model wordt er gebruik gemaakt van 100 parallelle trees en een random state om in de dataset willekeurigheid te hebben.</p>
+<p>Dit model scoort matig op de testset maar heeft duidelijk een hele hoge overfitting. Met een enorme score van 97% op de trainingsset scoort het model zeer hoog maar in tegenstelling tot de testset is er nog veel ruimte over op verbetering.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[653]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[701]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -16344,7 +16352,7 @@ Test set score: 0.414
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[663]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[702]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">err_knn_val</span> <span class="o">=</span> <span class="p">[]</span> 
@@ -16447,7 +16455,7 @@ Cross validation error voor 30 neighbors: 1.291
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[664]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[703]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">kFold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -16488,7 +16496,7 @@ Average cross-validation score: 0.30
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[664]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[703]:</div>
 
 
 
@@ -16520,71 +16528,71 @@ Average cross-validation score: 0.30
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.003322</td>
-      <td>0.012700</td>
+      <td>0.003008</td>
+      <td>0.012781</td>
       <td>0.355856</td>
       <td>0.552764</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.001797</td>
-      <td>0.009125</td>
+      <td>0.001879</td>
+      <td>0.009466</td>
       <td>0.346847</td>
       <td>0.539196</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.001834</td>
-      <td>0.012672</td>
+      <td>0.001952</td>
+      <td>0.011250</td>
       <td>0.348416</td>
       <td>0.550979</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.002515</td>
-      <td>0.013001</td>
+      <td>0.001859</td>
+      <td>0.009677</td>
       <td>0.325792</td>
       <td>0.545455</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.002036</td>
-      <td>0.011539</td>
+      <td>0.001831</td>
+      <td>0.011342</td>
       <td>0.298643</td>
       <td>0.554495</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.001879</td>
-      <td>0.009139</td>
+      <td>0.001802</td>
+      <td>0.009355</td>
       <td>0.343891</td>
       <td>0.550979</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.001773</td>
-      <td>0.009882</td>
+      <td>0.001817</td>
+      <td>0.009529</td>
       <td>0.316742</td>
       <td>0.540934</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.001793</td>
-      <td>0.009114</td>
+      <td>0.002369</td>
+      <td>0.012974</td>
       <td>0.339367</td>
       <td>0.552988</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>0.001867</td>
-      <td>0.008916</td>
+      <td>0.002633</td>
+      <td>0.012463</td>
       <td>0.352941</td>
       <td>0.544450</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.001825</td>
-      <td>0.009059</td>
+      <td>0.002464</td>
+      <td>0.012858</td>
       <td>0.371041</td>
       <td>0.552486</td>
     </tr>
@@ -16607,7 +16615,7 @@ Average cross-validation score: 0.30
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[665]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[704]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">min_max_scaler</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -16681,7 +16689,7 @@ Average cross-validation score: 0.04
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[666]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[705]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decTree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -16718,7 +16726,7 @@ Average cross-validation score: 0.04
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[666]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[705]:</div>
 
 
 
@@ -16750,71 +16758,71 @@ Average cross-validation score: 0.04
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.003435</td>
-      <td>0.000421</td>
+      <td>0.003540</td>
+      <td>0.000610</td>
       <td>0.418919</td>
       <td>0.471859</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.003687</td>
-      <td>0.000495</td>
+      <td>0.003500</td>
+      <td>0.000468</td>
       <td>0.418919</td>
       <td>0.464322</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.003372</td>
-      <td>0.000383</td>
+      <td>0.003407</td>
+      <td>0.000406</td>
       <td>0.425339</td>
       <td>0.463586</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.003356</td>
-      <td>0.000467</td>
+      <td>0.003563</td>
+      <td>0.000420</td>
       <td>0.452489</td>
       <td>0.460573</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.003338</td>
-      <td>0.000374</td>
+      <td>0.003497</td>
+      <td>0.000487</td>
       <td>0.393665</td>
       <td>0.465595</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.003272</td>
-      <td>0.000368</td>
+      <td>0.003606</td>
+      <td>0.000482</td>
       <td>0.416290</td>
       <td>0.465595</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.003382</td>
-      <td>0.000413</td>
+      <td>0.003463</td>
+      <td>0.000417</td>
       <td>0.407240</td>
       <td>0.468106</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.003295</td>
-      <td>0.000377</td>
+      <td>0.003328</td>
+      <td>0.000457</td>
       <td>0.425339</td>
       <td>0.460070</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>0.003439</td>
-      <td>0.000484</td>
+      <td>0.003303</td>
+      <td>0.000393</td>
       <td>0.452489</td>
       <td>0.459568</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.003369</td>
-      <td>0.000399</td>
+      <td>0.003282</td>
+      <td>0.000421</td>
       <td>0.434389</td>
       <td>0.465595</td>
     </tr>
@@ -16839,7 +16847,7 @@ Average cross-validation score: 0.04
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[667]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[706]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train_validation</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train_validation</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -16883,7 +16891,7 @@ Average cross-validation score: 0.04
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[668]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[707]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">beste_model</span> <span class="o">=</span> <span class="mi">0</span>
@@ -16952,7 +16960,7 @@ Test set score met de best gekozen parameters: 0.36
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[669]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[708]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">beste_score</span> <span class="o">=</span> <span class="mi">0</span>
@@ -17021,7 +17029,7 @@ Test set score met de best gekozen parameters: 0.43
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[670]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[709]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">beste_score</span> <span class="o">=</span> <span class="mi">0</span>
@@ -17089,7 +17097,7 @@ Test set score met de best gekozen parameters: 0.41
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[671]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[710]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">]}</span>
@@ -17142,7 +17150,7 @@ Best estimator: DecisionTreeClassifier(max_depth=2, random_state=0)
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[672]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[711]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">125</span><span class="p">]}</span>
@@ -17194,14 +17202,14 @@ Best estimator: RandomForestClassifier(max_depth=13, n_estimators=125, random_st
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="4.5---Feature-importance">4.5 - Feature importance<a class="anchor-link" href="#4.5---Feature-importance">&#182;</a></h2><p>De onderstaande grafiek toont aan hoe belangrijk de features zijn bij het voorspellen van elk model. 
+<h2 id="4.5---Feature-importance">4.5 - Feature importance<a class="anchor-link" href="#4.5---Feature-importance">&#182;</a></h2><p>De onderstaande grafieken tonen aan hoe belangrijk de features zijn bij het voorspellen van elk model. 
 We kunnen zien dat de <em>Totaalprijs</em> en <em>leeftijd</em>, samen met <em>aantal dagen op reis</em> sterk bepalen welke richting het model uitgaat. Beide modellen (decision tree en random forest) lijken goed op elkaar, namelijk omdat random forest gebaseerd is op het decision tree model.</p>
 <h3 id="4.5.1---Decision-tree-(3.2.1)">4.5.1 - Decision tree (3.2.1)<a class="anchor-link" href="#4.5.1---Decision-tree-(3.2.1)">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[673]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[712]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bar</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">treeModelReg</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s2">&quot;#eb4034&quot;</span><span class="p">));</span>
@@ -17253,7 +17261,7 @@ We kunnen zien dat de <em>Totaalprijs</em> en <em>leeftijd</em>, samen met <em>a
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[674]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[713]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bar</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">forest</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s2">&quot;#eb4034&quot;</span><span class="p">));</span>
@@ -17304,7 +17312,7 @@ We kunnen zien dat de <em>Totaalprijs</em> en <em>leeftijd</em>, samen met <em>a
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[675]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[714]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">training_score</span> <span class="o">=</span> <span class="n">beste_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
